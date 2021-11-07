@@ -1,0 +1,29 @@
+{
+  "name": "docs-excel",
+  "version": "1.0.0",
+  "description": "from online course",
+  "main": "webpack.config.js",
+  "scripts": {
+    "dev": "webpack --mode=development",
+    "build": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AleksandrMihasenko/docs-excel.git"
+  },
+  "keywords": [
+    "javascript",
+    "webpack"
+  ],
+  "author": "Mihasenko A.M.",
+  "private": true,
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AleksandrMihasenko/docs-excel/issues"
+  },
+  "homepage": "https://github.com/AleksandrMihasenko/docs-excel#readme",
+  "devDependencies": {
+    "webpack": "^5.62.1",
+    "webpack-cli": "^4.9.1"
+  }
+}
