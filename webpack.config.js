@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 
 
@@ -11,6 +12,26 @@ module.exports = (env, argv) => {
   
   const fileName = function (ext) {
     return isProd ? `[name].[contenthash].bundle.${ext}` : `[name].bundle.${ext}`;
+  }
+  
+  const plugins = () => {
+    const base = [
+      new HtmlWebpackPlugin({
+        template: './index.html'
+      }),
+      new CopyPlugin({
+        patterns: [
+          { from: path.resolve(__dirname, 'src', 'favicon.ico'), to: path.resolve(__dirname, 'dist') }
+        ]
+      }),
+      new MiniCssExtractPlugin({
+        filename: fileName('css')
+      })
+    ]
+    if (isDev) {
+      base.push(new ESLintPlugin())
+    }
+    return base;
   }
   
   return {
@@ -63,19 +84,7 @@ module.exports = (env, argv) => {
         },
       ],
     },
-    plugins: [
-      new HtmlWebpackPlugin({
-        template: './index.html'
-      }),
-      new CopyPlugin({
-        patterns: [
-          { from: path.resolve(__dirname, 'src', 'favicon.ico'), to: path.resolve(__dirname, 'dist') }
-        ]
-      }),
-      new MiniCssExtractPlugin({
-        filename: fileName('css')
-      })
-    ],
+    plugins: plugins(),
     devtool: isDev ? 'source-map' : false
   }
 }
