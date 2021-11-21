@@ -4,6 +4,7 @@
   "description": "from online course",
   "main": "webpack.config.js",
   "scripts": {
+    "serve": "webpack serve --mode=development",
     "dev": "webpack --mode=development",
     "build": "webpack --mode=production"
   },
@@ -36,7 +37,8 @@
     "sass": "^1.43.4",
     "sass-loader": "^12.3.0",
     "webpack": "^5.62.1",
-    "webpack-cli": "^4.9.1"
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.5.0"
   },
   "dependencies": {
     "core-js": "^3.9.0",

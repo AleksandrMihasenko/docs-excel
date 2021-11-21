@@ -34,6 +34,13 @@ module.exports = (env, argv) => {
         '@core': path.resolve(__dirname, 'core')
       }
     },
+    devServer: {
+      static: {
+        directory: path.join(__dirname, 'src'),
+      },
+      port: 8001,
+      open: true
+    },
     module: {
       rules: [
         {
