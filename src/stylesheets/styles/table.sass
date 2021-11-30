@@ -1,1 +1,44 @@
 .excel__table
+  position: absolute
+  padding-bottom: 2px
+  top: $header-height + $toolbar-height + $formula-height
+  left: 0
+  overflow-x: auto
+  &__row
+    display: flex
+    height: $row-height
+    min-height: 20px
+    &__info
+      display: flex
+      justify-content: center
+      align-items: center
+      min-width: $cell-width
+      height: 100%
+      background-color: #f8f9fa
+      border: 1px solid $border-color
+      border-top: none
+    &__data
+      display: flex
+      &__column
+        display: flex
+        justify-content: center
+        align-items: center
+        width: $column-width
+        min-width: 40px
+        height: 100%
+        background-color: #f8f9fa
+        border-bottom: 1px solid $border-color
+        border-right: 1px solid $border-color
+      &__cell
+        width: $column-width
+        min-width: 40px
+        height: 100%
+        padding: 5px
+        border-bottom: 1px solid #e2e3e3
+        border-right: 1px solid #e2e3e3
+        white-space: nowrap
+        outline: none
+        &.__selected
+          border: none
+          outline: 2px solid #3c74ff
+          z-index: 2
