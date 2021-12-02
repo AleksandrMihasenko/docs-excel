@@ -1,5 +1,5 @@
 import './js/app.js';
-import './styles/index.sass';
+import './stylesheets/index.sass';
 
 
 console.log('load');
