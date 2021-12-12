@@ -1,3 +1,7 @@
-import {Excel} from '@core/excel/Excel';
+import {Excel} from '@/components/excel/Excel';
 
-export class Formula extends Excel {}
+export class Formula extends Excel {
+  toHTML() {
+    return '<h1>Formula</h1>';
+  }
+}
