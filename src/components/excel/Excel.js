@@ -6,9 +6,14 @@ export class Excel {
 
   getRoot() {
     const $root = document.createElement('div');
+    $root.classList.add('excel');
+
     this.elements.forEach((Element) => {
+      const $el = document.createElement('div');
+      $el.classList.add(Element.className);
       const element = new Element();
-      $root.insertAdjacentHTML('beforeend', element.toHTML());
+      $el.innerHTML = element.toHTML();
+      $root.append($el);
     });
 
     return $root;
