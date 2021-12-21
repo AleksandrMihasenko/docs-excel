@@ -11,7 +11,7 @@ export class Excel {
     this.elements.forEach((Element) => {
       const $el = document.createElement('div');
       $el.classList.add(Element.className);
-      const element = new Element();
+      const element = new Element($el);
       $el.innerHTML = element.toHTML();
       $root.append($el);
     });
