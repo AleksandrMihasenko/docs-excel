@@ -3,17 +3,17 @@ import {$} from '@core/Dom';
 export class Excel {
   constructor(selector, options) {
     this.$el = document.querySelector(selector);
-    this.elements = options?.components || [];
+    this.components = options?.components || [];
   }
 
   getRoot() {
     const $root = $.create('div', 'excel');
 
-    this.elements.forEach((Element) => {
-      const $el = $.create('div', Element.className);
-      const element = new Element($el);
+    this.components.forEach((Component) => {
+      const $el = $.create('div', Component.className);
+      const component = new Component($el);
 
-      $el.innerHTML = element.toHTML();
+      $el.innerHTML = component.toHTML();
       $root.append($el);
     });
 
