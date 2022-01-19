@@ -11,14 +11,22 @@ function toCell() {
 
 function toColumn(col) {
   return `
-    <div class="excel__table__row__data__column">${col}</div>
+    <div class="excel__table__row__data__column">
+      ${col}
+      <div class="col-resize"></div>
+    </div>
   `;
 }
 
 function createRow(index, content) {
+  const resize = index ? `<div class="row-resize"></div>` : '';
+
   return `
     <div class="excel__table__row">
-      <div class="excel__table__row__info">${index ? index : ''}</div>
+      <div class="excel__table__row__info">
+        ${index ? index : ''}
+        ${resize}
+      </div>
       <div class="excel__table__row__data">${content}</div>
     </div>
   `;

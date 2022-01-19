@@ -9,6 +9,7 @@
     height: $row-height
     min-height: 20px
     &__info
+      position: relative
       display: flex
       justify-content: center
       align-items: center
@@ -20,6 +21,7 @@
     &__data
       display: flex
       &__column
+        position: relative
         display: flex
         justify-content: center
         align-items: center
@@ -40,5 +42,27 @@
         outline: none
         &.__selected
           border: none
-          outline: 2px solid #3c74ff
+          outline: 2px solid $primary-color
           z-index: 2
+
+    .col-resize,
+    .row-resize
+      position: absolute
+      background-color: $primary-color
+      opacity: 0
+      &:hover
+        opacity: 1
+
+    .col-resize
+      right: -2px
+      width: 4px
+      height: 100%
+      &:hover
+        cursor: col-resize
+
+    .row-resize
+      bottom: -2px
+      width: 100%
+      height: 4px
+      &:hover
+        cursor: row-resize
