@@ -3,15 +3,22 @@ const CODES = {
   Z: 90,
 };
 
-function toCell() {
+function toCell(_, col) {
   return `
-    <div class="excel__table__row__data__cell" contenteditable></div>
+    <div
+      class="excel__table__row__data__cell"
+      contenteditable data-col="${col}"
+     ></div>
   `;
 }
 
-function toColumn(col) {
+function toColumn(col, index) {
   return `
-    <div class="excel__table__row__data__column" data-type="resizable">
+    <div 
+      class="excel__table__row__data__column"
+      data-type="resizable"
+      data-col="${index}"
+    >
       ${col}
       <div class="col-resize" data-resize="col"></div>
     </div>

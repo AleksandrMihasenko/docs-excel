@@ -26,6 +26,9 @@ export class Table extends ExcelComponent {
         const value = coords.width + delta;
 
         $parent.$el.style.width = value + 'px';
+
+        document.querySelectorAll(`[data-col="${$parent.data.col}"]`)
+            .forEach((el) => el.style.width = value + 'px');
       };
 
       document.onmouseup = () => {
