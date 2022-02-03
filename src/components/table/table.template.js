@@ -31,7 +31,7 @@ function createRow(index, content) {
                 : '';
 
   return `
-    <div class="excel__table__row">
+    <div class="excel__table__row" data-type="resizable">
       <div class="excel__table__row__info">
         ${index ? index : ''}
         ${resize}
