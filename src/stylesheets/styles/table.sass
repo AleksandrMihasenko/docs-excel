@@ -48,10 +48,13 @@
     .col-resize,
     .row-resize
       position: absolute
+      right: 0
+      bottom: 0
       background-color: $primary-color
       opacity: 0
+      z-index: 1000
       &:hover
-        opacity: 1
+        opacity: 1 !important
 
     .col-resize
       right: -2px
