@@ -14,12 +14,20 @@ export function resizeHandler($root, event) {
       const delta = e.pageX - coords.right;
       value = coords.width + delta;
 
-      $resizer.css({ right: -delta + 'px' });
+      $resizer.css({
+        right: -delta + 'px',
+        top: 0, bottom: 0,
+        height: '3000px',
+      });
     } else {
       const delta = e.pageY - coords.bottom;
       value = coords.height + delta;
 
-      $resizer.css({ bottom: -delta + 'px' });
+      $resizer.css({
+        bottom: -delta + 'px',
+        left: 0, right: 0,
+        width: '3000px',
+      });
     }
   };
 
