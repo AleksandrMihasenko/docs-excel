@@ -8,7 +8,9 @@ function toCell(row) {
     return `
       <div
         class="excel__table__row__data__cell"
-        contenteditable data-col="${col}"
+        contenteditable
+        data-col="${col}"
+        data-type="cell"
         data-id="${row}:${col}"
       ></div>
     `;
