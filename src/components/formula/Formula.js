@@ -1,8 +1,12 @@
 import {ExcelComponent} from '@core/ExcelComponent';
 
 export class Formula extends ExcelComponent {
-  constructor($root) {
-    super($root, { name: 'Formula', listeners: ['input', 'click'] });
+  constructor($root, options) {
+    super($root, {
+      name: 'Formula',
+      listeners: ['input'],
+      ...options,
+    });
   }
 
   static className = 'excel__formula';
@@ -19,10 +23,7 @@ export class Formula extends ExcelComponent {
   }
 
   onInput(event) {
-    console.log('onInput formula', event.target.textContent.trim());
-  }
-
-  onClick(event) {
-    console.log('onClick formula');
+    const text = event.target.textContent.trim();
+    this.emitter.emit('input', text);
   }
 }
