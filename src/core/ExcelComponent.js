@@ -4,8 +4,10 @@ export class ExcelComponent extends DomListener {
   constructor($root, options = {}) {
     super($root, options.listeners);
     this.name = options.name || '';
+    this.store = options.store;
     this.emitter = options.emitter;
     this.unsubscribers = [];
+    this.storeSub = null;
 
     this.prepare();
   }
@@ -17,7 +19,6 @@ export class ExcelComponent extends DomListener {
   toHTML() {
     return '';
   }
-
 
   // facade pattern, notify listeners about event
   $emit(event, ...args) {
@@ -39,5 +40,16 @@ export class ExcelComponent extends DomListener {
   destroy() {
     this.removeDomListeners();
     this.unsubscribers.forEach((unsub) => unsub());
+    this.storeSub.unsubscribe();
+  }
+
+  // subscribe on events in store
+  $subscribe(fn) {
+    this.storeSub = this.store.subscribe(fn);
+  }
+
+  // push events to store
+  $dispatch(action) {
+    this.store.dispatch(action);
   }
 }
