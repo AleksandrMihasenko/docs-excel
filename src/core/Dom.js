@@ -105,6 +105,13 @@ class Dom {
     this.$el.classList.remove(className);
     return this;
   }
+
+  getStyles(styles = []) {
+    return styles.reduce((res, style) => {
+      res[style] = this.$el.style[style];
+      return res;
+    }, {});
+  }
 }
 
 export function $(selector) {

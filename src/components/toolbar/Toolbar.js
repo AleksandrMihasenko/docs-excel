@@ -1,6 +1,7 @@
 import {ExcelStateComponent} from '@core/ExcelStateComponent';
 import {createToolbar} from './toolbar.template';
 import {$} from '@core/Dom';
+import {DEFAULT_STYLES} from '../../constants';
 
 
 export class Toolbar extends ExcelStateComponent {
@@ -15,14 +16,7 @@ export class Toolbar extends ExcelStateComponent {
   }
 
   prepare() {
-    const initialState = {
-      textAlign: 'left',
-      fontWeight: 'normal',
-      textDecoration: 'none',
-      fontStyle: 'normal',
-    };
-
-    this.initState(initialState);
+    this.initState(DEFAULT_STYLES);
   }
 
   get template() {
@@ -39,6 +33,7 @@ export class Toolbar extends ExcelStateComponent {
     if ($target.data.type === 'button') {
       const value = JSON.parse($target.data.value);
 
+      this.$emit('toolbar:applyStyle', value);
       this.setState(value);
     }
   }
