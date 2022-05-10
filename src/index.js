@@ -6,8 +6,9 @@ import {Table} from '@/components/table/Table';
 import {createStore} from '@core/createStore';
 import {rootReducer} from '@/redux/rootReducer';
 import {storage} from './core/utils';
-import './stylesheets/index.sass';
 import {initialState} from '@/redux/initialState';
+
+import './stylesheets/index.sass';
 
 const store = createStore(rootReducer, initialState);
 
