@@ -5,7 +5,7 @@ function toHTML(key) {
   const id = key.split(':')[1];
   return `
     <li class="dashboard__table__list__item">
-      <a href="#excel${id}">${model.title}</a>
+      <a href="#excel/${id}">${model.title}</a>
       <strong>
         ${new Date(model.openedDate).toLocaleTimeString()}
       </strong>
