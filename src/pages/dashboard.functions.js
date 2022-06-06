@@ -6,7 +6,9 @@ function toHTML(key) {
   return `
     <li class="dashboard__table__list__item">
       <a href="#excel${id}">${model.title}</a>
-      <strong>02.12.2021</strong>
+      <strong>
+        ${new Date(model.openedDate).toLocaleTimeString()}
+      </strong>
     </li>
   `;
 }
